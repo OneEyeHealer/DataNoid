@@ -1,10 +1,73 @@
 import { CdkDragDrop, moveItemInArray } from '@angular/cdk/drag-drop';
 import { Component } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
+import { FormComponent } from './form/form.component';
+import { ApiData } from './_interface/ApiData.ts';
+import { Exercise } from './_interface/Exercise';
 
-export interface Exercise {
-  name: string;
-}
+const DATA: ApiData[] = [
+  {
+    Id: 1,
+    FirstName: 'Hydrogen',
+    LastName: 'Linkin',
+    Email: 'example@gamil.com',
+    Phone: 9876543211,
+    Department: 'Other',
+    JobRole: 'other',
+    Address: 'NA',
+  },
+  {
+    Id: 2,
+    FirstName: 'Helium',
+    LastName: 'Linkin',
+    Email: 'example@gamil.com',
+    Phone: 9876543211,
+    Department: 'Other',
+    JobRole: 'other',
+    Address: 'NA',
+  },
+  {
+    Id: 3,
+    FirstName: 'Lithium',
+    LastName: 'Linkin',
+    Email: 'example@gamil.com',
+    Phone: 9876543211,
+    Department: 'Other',
+    JobRole: 'other',
+    Address: 'NA',
+  },
+  {
+    Id: 4,
+    FirstName: 'Beryllium',
+    LastName: 'Linkin',
+    Email: 'example@gamil.com',
+    Phone: 9876543211,
+    Department: 'Other',
+    JobRole: 'other',
+    Address: 'NA',
+  },
+  {
+    Id: 5,
+    FirstName: 'Boron',
+    LastName: 'Linkin',
+    Email: 'example@gamil.com',
+    Phone: 9876543211,
+    Department: 'Other',
+    JobRole: 'other',
+    Address: 'NA',
+  },
+  {
+    Id: 6,
+    FirstName: 'Carbon',
+    LastName: 'Linkin',
+    Email: 'example@gamil.com',
+    Phone: 9876543211,
+    Department: 'Other',
+    JobRole: 'other',
+    Address: 'NA',
+  },
+];
+
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
@@ -18,9 +81,25 @@ export class AppComponent {
       console.log(`Dialog Result: ${response}`);
     });
   };
+  OpenForm = () => {
+    const formRef = this.dialog.open(FormComponent);
+    formRef.afterClosed().subscribe((response) => {
+      console.log(`Dialog Result: ${response}`);
+    });
+  };
   title = 'DataNoid | All in one platform';
+  displayedColumns: string[] = [
+    '#',
+    'Name',
+    'Email',
+    'Phone',
+    'Department',
+    'Job Roles',
+    'Address',
+  ];
+  columnsToDisplay: string[] = this.displayedColumns.slice();
+  data: ApiData[] = DATA;
 }
-
 @Component({
   selector: 'app-root',
   templateUrl: './dialog.html',

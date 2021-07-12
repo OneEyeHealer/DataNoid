@@ -1,8 +1,52 @@
 /* You can add global styles to this file, and also import other style files */
+:root {
+  --theme-color: #673ab7;
+  --text-white: #ffffff;
+  --footer-bg: #303c6c;
+  --title-head: #303c6c;
+  --hilight-hover: rgba(0, 0, 0, 0.2);
+}
+html,
+body {
+  height: 100%;
+}
 
-html, body { height: 100%; }
-body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+body {
+  margin: 0;
+  padding: 0;
+  font-family: Roboto, "Helvetica Neue", sans-serif;
+}
+main {
+  min-height: 79.5vh;
+}
+mat-icon {
+  cursor: pointer;
+}
+mat-icon:hover {
+  background: var(--hilight-hover);
+  border-radius: 100%;
+}
+
+h1.title-head {
+  font-family: "Cinzel Decorative", cursive;
+  font-size: 3em;
+  font-weight: 600;
+  color: var(--title-head);
+}
 
 .example-spacer {
-    flex: 1 1 auto;
-  }
+  flex: 1 1 auto;
+}
+table {
+  text-align: center;
+}
+
+.table-theme {
+  background-color: var(--theme-color);
+  color: var(--text-white);
+  border-radius: 15px;
+}
+.table-theme th:hover,
+.table-theme td:hover {
+  background: var(--hilight-hover);
+}

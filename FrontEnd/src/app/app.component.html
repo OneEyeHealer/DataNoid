@@ -1,5 +1,60 @@
 <app-navbar></app-navbar>
-<div class="container">
-  <h1>Exercise</h1>
-  <button mat-button (click)="OpenDialog()">Open dialog</button>
-</div>
+<main class="main">
+  <div class="container">
+    <h1 class="text-center title-head">App User</h1>
+    <button mat-button (click)="OpenDialog()" cdkFocusInitial>Rearrange</button>
+    <button mat-button (click)="OpenForm()" cdkFocusInitial>+ New User</button>
+    <table class="table table-striped">
+      <thead class="table-theme">
+        <tr>
+          <th scope="col" *ngFor="let column of displayedColumns">
+            {{ column }}
+          </th>
+          <th scope="col" colspan="3">Options</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let item of data">
+          <td scope="row">
+            <pre>{{ item.Id }}</pre>
+          </td>
+          <td scope="row">
+            <pre>{{ item.FirstName + " " + item.LastName }}</pre>
+          </td>
+          <td scope="row">
+            <pre>{{ item.Email }}</pre>
+          </td>
+          <td scope="row">
+            <pre>{{ item.Phone }}</pre>
+          </td>
+          <td scope="row">
+            <pre>{{ item.Department }}</pre>
+          </td>
+          <td scope="row">
+            <pre>{{ item.JobRole }}</pre>
+          </td>
+          <td scope="row">
+            <pre>{{ item.Address }}</pre>
+          </td>
+          <td scope="row">
+            <mat-icon class="text-primary" matTooltip="Edit AppUser"
+              >edit</mat-icon
+            >
+          </td>
+          <td scope="row">
+            <mat-icon class="text-danger" matTooltip="Delete AppUser"
+              >delete</mat-icon
+            >
+          </td>
+          <td scope="row">
+            <mat-icon class="text-info" matTooltip="Information of App User"
+              >info</mat-icon
+            >
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</main>
+
+<app-footer> </app-footer>

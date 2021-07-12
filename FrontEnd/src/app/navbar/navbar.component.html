@@ -1,4 +1,4 @@
-<mat-toolbar color="light" class="top-navbar mb-3">
+<mat-toolbar color="primary" class="top-navbar mb-3">
   <button
     mat-icon-button
     class="example-icon"
@@ -7,24 +7,41 @@
     <mat-icon>source</mat-icon>
   </button>
   <span class="me-3">DataNoid</span>
-  <span><a mat-button>Home</a></span>
+  <span><a mat-button style="background: rgba(0, 0, 0, 0.2)">Home</a></span>
   <span><a mat-button>About</a></span>
   <span><a mat-button>Contact</a></span>
 
   <span class="example-spacer"></span>
   <button
     mat-icon-button
-    matTooltip="Notification of DataNoid"
     type="button"
     class="example-icon notifications"
     aria-label="Notifications to Notifi the user"
   >
-    <mat-icon>notifications</mat-icon>
+    <mat-icon matTooltip="Notification of DataNoid">notifications</mat-icon>
   </button>
-  <span class="account">
+  <span
+    class="account"
+    (click)="isOpen = !isOpen"
+    cdkOverlayOrigin
+    #trigger="cdkOverlayOrigin"
+  >
     <img
+      matTooltip="{{
+        isOpen ? 'Click to Close Profile' : 'Click to Open Profile'
+      }}"
       src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRk8cyUrYvHcRDy0ogeHCORJ4TnGpXq1PYpwQ&usqp=CAU"
       alt="User"
     />
   </span>
+  <ng-template
+    cdkConnectedOverlay
+    [cdkConnectedOverlayOrigin]="trigger"
+    [cdkConnectedOverlayOpen]="isOpen"
+  >
+    <ul class="navbar-list">
+      <li><mat-icon>account_circle</mat-icon> <span>Account</span></li>
+      <li><mat-icon>logout</mat-icon> <span>Logout</span></li>
+    </ul>
+  </ng-template>
 </mat-toolbar>
