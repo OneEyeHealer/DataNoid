@@ -84,7 +84,7 @@ export class AppComponent {
   OpenForm = () => {
     const formRef = this.dialog.open(FormComponent);
     formRef.afterClosed().subscribe((response) => {
-      console.log(`Dialog Result: ${response}`);
+      console.log(response);
     });
   };
   title = 'DataNoid | All in one platform';

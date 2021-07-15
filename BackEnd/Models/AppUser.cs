@@ -1,8 +1,11 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Web.Http.Cors;
+
 
 namespace BackEnd.Models
 {
+    [EnableCors(origins: "http://mywebclient.azurewebsites.net", headers: "*", methods: "*")]
     public class AppUser
     {
         public int AppUserId {get; set;}
